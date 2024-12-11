@@ -465,5 +465,10 @@ https://clerk.com/docs/references/nextjs/auth
     "lint": "next lint"
   },
 ```
+```textplain
+--legacy-peer-deps
+
+"plugins": ["@typescript-eslint"]
+```
 
 ## สู้ๆ ครับทุกๆ คน
