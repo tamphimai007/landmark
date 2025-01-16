@@ -1,25 +1,31 @@
+import { Suspense } from "react";
 import { DarkMode } from "./DarkMode";
 import DropdownListMenu from "./DropdownListMenu";
 import Logo from "./Logo";
 import Search from "./Search";
+import LoadingCard from "../card/LoadingCard";
 
 const Navbar = () => {
   return (
-    <nav>
-      <div className="container flex flex-col justify-between
+    <Suspense fallback={<LoadingCard />}>
+      <nav>
+        <div
+          className="container flex flex-col justify-between
       py-8 sm:flex-row sm:items-center gap-4
-      ">
-        {/* Logo */}
-        <Logo />
-        {/* Search */}
-        <Search />
-        {/* DarkMode & Profile */}
-        <div className="flex gap-4">
-          <DarkMode />
-          <DropdownListMenu />
+      "
+        >
+          {/* Logo */}
+          <Logo />
+          {/* Search */}
+          <Search />
+          {/* DarkMode & Profile */}
+          <div className="flex gap-4">
+            <DarkMode />
+            <DropdownListMenu />
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </Suspense>
   );
 };
 export default Navbar;

@@ -5,7 +5,6 @@ import Navbar from "@/components/Navbar/Navbar";
 import Providers from "./Providers";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Mali } from "next/font/google";
-import { Suspense } from "react";
 
 const mali = Mali({
   weight: "400",
@@ -34,7 +33,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <Suspense fallback={<h1>Loading...</h1>}>
       <ClerkProvider>
         <html lang="en" suppressHydrationWarning>
           <body className={`${mali.className} antialiased`}>
@@ -45,6 +43,5 @@ export default function RootLayout({
           </body>
         </html>
       </ClerkProvider>
-    </Suspense>
   );
 }
