@@ -1,6 +1,12 @@
+"use client";
+
+import { Suspense } from "react";
+
 const notfound = () => {
   return (
-    <div>notfound</div>
-  )
-}
-export default notfound
+    <Suspense fallback={<div>Loading...</div>}>
+      <div>notfound</div>
+    </Suspense>
+  );
+};
+export default notfound;
