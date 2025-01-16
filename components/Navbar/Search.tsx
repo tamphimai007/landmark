@@ -12,7 +12,7 @@ const Search = () => {
   );
 
   const handleSearch = useDebouncedCallback((value: string) => {
-    const params = new URLSearchParams(searchParams);
+    const params = new URLSearchParams(searchParams.toString());
     if (value) {
       params.set("search", value);
     } else {
