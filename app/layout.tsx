@@ -4,13 +4,13 @@ import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Providers from "./Providers";
 import { ClerkProvider } from "@clerk/nextjs";
-import { Mali } from 'next/font/google'
+import { Mali } from "next/font/google";
+import { Suspense } from "react";
 
 const mali = Mali({
-  weight: '400',
-  subsets : ['latin','thai']
-})
-
+  weight: "400",
+  subsets: ["latin", "thai"],
+});
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -34,17 +34,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
-      <html lang="en" suppressHydrationWarning>
-        <body
-          className={`${mali.className} antialiased`}
-        >
-          <Providers>
-            <Navbar />
-            <main className="container">{children}</main>
-          </Providers>
-        </body>
-      </html>
-    </ClerkProvider>
+    <Suspense fallback={<h1>Loading...</h1>}>
+      <ClerkProvider>
+        <html lang="en" suppressHydrationWarning>
+          <body className={`${mali.className} antialiased`}>
+            <Providers>
+              <Navbar />
+              <main className="container">{children}</main>
+            </Providers>
+          </body>
+        </html>
+      </ClerkProvider>
+    </Suspense>
   );
 }
