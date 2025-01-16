@@ -4,7 +4,7 @@ import LandmarkContainer from "@/components/home/LandmarkContainer";
 import { Button } from "@/components/ui/button";
 import { Suspense } from "react";
 const page = async({ searchParams }: 
-  { searchParams: { search?: string,category?:string } }) => {
+  { searchParams: Promise<{ search?: string,category?:string }> }) => {
   // Search
   const { search, category } = await searchParams;
 
