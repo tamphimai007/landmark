@@ -4,6 +4,7 @@ import { Input } from "../ui/input";
 import { useEffect, useState } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import { Suspense } from "react";
+import LoadingCard from "../card/LoadingCard";
 const Search = () => {
   const searchParams = useSearchParams();
   const { replace } = useRouter();
@@ -29,7 +30,7 @@ const Search = () => {
   }, [searchParams.get("search")]);
 
   return (
-    <Suspense>
+    <Suspense fallback={<LoadingCard />}>
       <Input
         type="text"
         placeholder="Seach Camping..."
