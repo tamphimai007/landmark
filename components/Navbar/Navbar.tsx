@@ -7,7 +7,7 @@ import LoadingCard from "../card/LoadingCard";
 
 const Navbar = () => {
   return (
-    <Suspense fallback={<LoadingCard />}>
+    // <Suspense fallback={<LoadingCard />}>
       <nav>
         <div
           className="container flex flex-col justify-between
@@ -25,7 +25,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-    </Suspense>
+    // </Suspense>
   );
 };
 export default Navbar;
